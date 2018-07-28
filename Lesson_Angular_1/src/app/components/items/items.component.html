@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6" *ngFor="let item of items">
+      <div class="card">
+        <div class="card-header">
+         {{ item.name }}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ item.price }}</h5>
+          <p class="card-text">{{ item.info }}</p>
+          <button class="btn btn-primary mt-2" (click)="showMe[item.reviews]= !showMe[item.reviews]"> {{ showMe[item.reviews] ? 'Hide reviews' : 'Show reviews'}}</button>
+          <button class="btn btn-danger mt-2 ml-1" (click)=" deleteItem(item.name)"> Delete </button>
+          <div class="reviews-block mt-1" *ngIf="showMe[item.reviews]">
+            <div class ='reviews'>
+              <div *ngFor="let review of item.reviews">
+                <h6 class="card-title mt-2">{{ review.name}}</h6>
+                <p class="card-text">{{ review.text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+    <div class="alert alert-info" *ngIf="!items.length">
+      Постов не найдено!
+    </div>
+  </div>
+  <!--<button class="btn btn-primary mt-3 ml-4" (click)="toggleReviewsBlock()"> {{ reviewsIsShow ? 'Hide reviews' : 'Show reviews'}}</button>-->
+  <!--<div class="row">-->
+    <!--<div class="col-12 reviews-block mt-3" *ngIf="reviewsIsShow">-->
+      <!--<div class ='reviews ml-4' *ngFor="let item of items">-->
+        <!--<h5 class="text-danger mt-3">-->
+          <!--{{ item.name }}-->
+        <!--</h5>-->
+        <!--<div *ngFor="let review of item.reviews">-->
+          <!--<h6 class="card-title mt-2">{{ review.name}}</h6>-->
+          <!--<p class="card-text">{{ review.text }}</p>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+</div>
