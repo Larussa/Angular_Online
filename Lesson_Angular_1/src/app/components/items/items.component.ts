@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemsComponent implements OnInit {
   items: any[] = [{
-    name: "Salmon - Canned",
+    nameFood: "Salmon - Canned",
     price: "$91.56",
     info: "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.",
-    reviews: [
+    review: [
       {
         name: "Denis",
         text: "Some review text"
@@ -18,10 +18,10 @@ export class ItemsComponent implements OnInit {
     ]
   },
   {
-    name: "Soup - Beef, Base Mix",
+    nameFood: "Soup - Beef, Base Mix",
     price: "$126.14",
     info: "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.",
-    reviews: [
+    review: [
       {
         name: "Ivan",
         text: "Some review text Some review text Some review text Some review text"
@@ -29,17 +29,41 @@ export class ItemsComponent implements OnInit {
       {
         name: "Maks",
         text: "Some review text Some review text Some review text Some review text"
+      },
+
+    ]
+  },
+  {
+    nameFood: "Veal steak",
+    price: "$74.56",
+    info: "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.",
+    review: [
+
+    ]
+  },
+  {
+    nameFood: "Mushrooms with potatoes",
+    price: "$46.14",
+    info: "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.",
+    review: [
+      {
+        name: "Katy",
+        text: "Some review text Some review text Some review text Some review text"
+      },
+      {
+        name: "Ivan",
+        text: "Some review text Some review text Some review text Some review text"
       }
     ]
   }];
-  showMe:any = {};
 
   constructor() { }
 
   ngOnInit() {
   }
-  deleteItem(name:string) {
-    this.items = this.items.filter(item => item.name !== name);
+
+  deleteItem(item) {
+    this.items = this.items.filter(el => el !== item);
   }
 
 }
